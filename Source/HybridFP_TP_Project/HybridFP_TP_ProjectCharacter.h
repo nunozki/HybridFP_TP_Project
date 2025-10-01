@@ -35,9 +35,6 @@ class AHybridFP_TP_ProjectCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCamera;
 
-	//Camera Toggle Bool
-	bool bIsFirstPerson;
-
 protected:
 
 	/** Jump Input Action */
@@ -55,6 +52,11 @@ protected:
 	/** Mouse Look Input Action */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MouseLookAction;
+
+public:
+	//Camera Toggle Bool
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Camera")
+	bool bIsFirstPerson;
 
 public:
 

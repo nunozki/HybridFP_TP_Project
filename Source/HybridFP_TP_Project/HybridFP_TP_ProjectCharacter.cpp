@@ -152,6 +152,9 @@ void AHybridFP_TP_ProjectCharacter::DoJumpEnd()
 
 void AHybridFP_TP_ProjectCharacter::ToggleCamera()
 {
+	//Salva a rotação atual
+	FRotator CurrentRot = Controller->GetControlRotation();
+
 	if (bIsFirstPerson)
 	{
 		FirstPersonCamera->Deactivate();
@@ -162,6 +165,9 @@ void AHybridFP_TP_ProjectCharacter::ToggleCamera()
 		FollowCamera->Deactivate();
 		FirstPersonCamera->Activate();
 	}
+
+	//Restaura a rotação
+	Controller->SetControlRotation(CurrentRot);
 
 	bIsFirstPerson = !bIsFirstPerson;
 }
